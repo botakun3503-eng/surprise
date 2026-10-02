@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>My Surprise ❤️</title>
+
+<style>
+
+/* =========================
+   DASAR
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#25000d,#8b0015,#d0001b);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+.page{
+    min-height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+}
+
+.page.active{
+    display:flex;
+}
+
+.opening,
+.surprise,
+.message,
+.gallery,
+.video-page{
+    flex-direction:column;
+}
+
+
+/* =========================
+   HALAMAN AWAL
+========================= */
+
+.title{
+    font-size:28px;
+    margin-bottom:30px;
+    text-shadow:0 0 10px #ff8da1;
+}
+
+.envelope{
+    width:230px;
+    height:150px;
+    background:#fff;
+    position:relative;
+    border-radius:5px;
+    box-shadow:0 0 30px #ffffff66;
+    cursor:pointer;
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:115px solid transparent;
+    border-right:115px solid transparent;
+    border-top:80px solid #f1b5b5;
+}
+
+.heart{
+    position:absolute;
+    top:55px;
+    left:95px;
+    font-size:40px;
+    z-index:2;
+}
+
+.open-text{
+    margin-top:30px;
+    font-size:20px;
+    letter-spacing:2px;
+    animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.5;
+    }
+}
+
+
+/* =========================
+   HALAMAN SURPRISE
+========================= */
+
+.surprise h1,
+.gallery h2{
+    font-family:cursive;
+    font-size:38px;
+    margin-bottom:5px;
+    text-shadow:0 0 10px #ff8da1;
+}
+
+.date{
+    margin-bottom:15px;
+    color:#ffd5dc;
+}
+
+
+/* =========================
+   KOLASE FOTO
+   DIPAKAI UNTUK KEDUA HALAMAN
+========================= */
+
+.photo-collage{
+    width:340px;
+    height:380px;
+    position:relative;
+    margin:5px auto 15px;
+}
+
+
+/* FRAME FOTO */
+
+.photo-card{
+    position:absolute;
+    width:145px;
+    height:170px;
+
+    background:#fff;
+
+    padding:7px 7px 22px;
+
+    border-radius:5px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+
+    transition:.4s;
+}
+
+.photo-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:3px;
+}
+
+
+/* EFEK SAAT DISENTUH */
+
+.photo-card:hover{
+    transform:scale(1.08) rotate(0deg) !important;
+    z-index:30;
+}
+
+
+/* FOTO KIRI ATAS */
+
+.photo-card.photo-a{
+    top:5px;
+    left:15px;
+    transform:rotate(-8deg);
+    z-index:4;
+}
+
+
+/* FOTO KANAN ATAS */
+
+.photo-card.photo-b{
+    top:5px;
+    right:15px;
+    transform:rotate(8deg);
+    z-index:3;
+}
+
+
+/* FOTO KIRI BAWAH */
+
+.photo-card.photo-c{
+    bottom:0;
+    left:15px;
+    transform:rotate(7deg);
+    z-index:2;
+}
+
+
+/* FOTO KANAN BAWAH */
+
+.photo-card.photo-d{
+    bottom:0;
+    right:15px;
+    transform:rotate(-7deg);
+    z-index:5;
+}
+
+
+/* =========================
+   LOVE TENGAH
+========================= */
+
+.photo-love{
+    position:absolute;
+    z-index:20;
+
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,.4));
+
+    animation:heartBeat 1.2s infinite;
+}
+
+.photo-love.big{
+    top:150px;
+    left:143px;
+    font-size:38px;
+}
+
+.photo-love.medium{
+    top:180px;
+    left:173px;
+    font-size:25px;
+    animation-delay:.3s;
+}
+
+.photo-love.small{
+    top:130px;
+    left:173px;
+    font-size:20px;
+    animation-delay:.6s;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+}
+
+
+/* =========================
+   BUNGA
+========================= */
+
+.photo-flower{
+    position:absolute;
+    z-index:18;
+
+    font-size:27px;
+
+    filter:drop-shadow(0 3px 4px rgba(0,0,0,.3));
+
+    animation:flowerFloat 2.5s ease-in-out infinite;
+}
+
+.photo-flower.one{
+    top:105px;
+    left:0;
+}
+
+.photo-flower.two{
+    top:110px;
+    right:0;
+}
+
+.photo-flower.three{
+    bottom:55px;
+    left:145px;
+}
+
+.photo-flower.four{
+    top:0;
+    left:150px;
+}
+
+@keyframes flowerFloat{
+
+    0%,100%{
+        transform:
+            rotate(-5deg)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            rotate(5deg)
+            translateY(-7px);
+    }
+
+}
+
+
+/* =========================
+   LOVE KECIL
+========================= */
+
+.photo-small-love{
+    position:absolute;
+    z-index:25;
+
+    font-size:18px;
+
+    animation:floatLove 2s ease-in-out infinite;
+}
+
+.photo-small-love.one{
+    top:30px;
+    left:155px;
+}
+
+.photo-small-love.two{
+    top:150px;
+    right:10px;
+    animation-delay:.5s;
+}
+
+.photo-small-love.three{
+    bottom:25px;
+    left:155px;
+    animation-delay:1s;
+}
+
+@keyframes floatLove{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+
+/* =========================
+   PESAN
+========================= */
+
+.message-box{
+    width:90%;
+    max-width:650px;
+
+    background:#fffc;
+
+    color:#5a1020;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px #0006;
+
+    line-height:1.8;
+
+    text-align:left;
+}
+
+.message-box h2{
+    font-family:cursive;
+    font-size:35px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.buttons{
+    margin-top:20px;
+
+    display:flex;
+
+    gap:12px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+}
+
+button{
+    padding:12px 25px;
+
+    border:0;
+
+    border-radius:25px;
+
+    background:#55d63d;
+
+    color:#222;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 0 #24751b;
+}
+
+.music-btn{
+    background:#ff4d6d;
+    color:#fff;
+    box-shadow:0 4px 0 #a51d35;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-page h2{
+    font-family:cursive;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+video{
+    width:90%;
+    max-width:700px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 25px #000;
+}
+
+
+/* =========================
+   BUNGA JATUH
+========================= */
+
+.petal{
+    position:fixed;
+
+    top:-30px;
+
+    font-size:22px;
+
+    animation:fall linear forwards;
+
+    pointer-events:none;
+}
+
+@keyframes fall{
+
+    to{
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* =========================
+   HP
+========================= */
+
+@media(max-width:600px){
+
+    .title{
+        font-size:23px;
+    }
+
+    .surprise h1,
+    .gallery h2{
+        font-size:32px;
+    }
+
+    .message-box{
+        padding:20px;
+    }
+
+    .photo-collage{
+        width:315px;
+        height:355px;
+    }
+
+    .photo-card{
+        width:138px;
+        height:160px;
+    }
+
+    .photo-love.big{
+        left:133px;
+        top:140px;
+    }
+
+    .photo-love.medium{
+        left:160px;
+        top:170px;
+    }
+
+    .photo-love.small{
+        left:160px;
+        top:120px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HALAMAN AWAL
+========================= -->
+
+<section id="home" class="page active opening">
+
+    <div class="title">
+        💌 ADA SURPRISE UNTUKMU 💌
+    </div>
+
+
+    <div
+        class="envelope"
+        onclick="openSurprise()"
+    >
+
+        <div class="heart">
+            ❤️
+        </div>
+
+    </div>
+
+
+    <div class="open-text">
+        TAP THE ENVELOPE
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOR YAYAAA
+========================= -->
+
+<section id="surprise" class="page surprise">
+
+    <h1>
+        For Yayaaa ❤️
+    </h1>
+
+
+    <div class="date">
+        08 - 08 - 2011
+    </div>
+
+
+    <!-- KOLASE YAYAAA -->
+
+    <div class="photo-collage">
+
+
+        <!-- FOTO 1 -->
+
+        <div class="photo-card photo-a">
+
+            <img
+                src="images/sayang.jpg"
+                alt="Yayaa 1"
+            >
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div class="photo-card photo-b">
+
+            <img
+                src="images/sayangg.jpg"
+                alt="Yayaa 2"
+            >
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div class="photo-card photo-c">
+
+            <img
+                src="images/sayanggg.jpg"
+                alt="Yayaa 3"
+            >
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div class="photo-card photo-d">
+
+            <img
+                src="images/sayangggg.jpg"
+                alt="Yayaa 4"
+            >
+
+        </div>
+
+
+        <!-- LOVE -->
+
+        <div class="photo-love big">
+            ❤️
+        </div>
+
+        <div class="photo-love medium">
+            💕
+        </div>
+
+        <div class="photo-love small">
+            💗
+        </div>
+
+
+        <!-- BUNGA -->
+
+        <div class="photo-flower one">
+            🌸
+        </div>
+
+        <div class="photo-flower two">
+            🌷
+        </div>
+
+        <div class="photo-flower three">
+            🌼
+        </div>
+
+        <div class="photo-flower four">
+            🌺
+        </div>
+
+
+        <!-- LOVE KECIL -->
+
+        <div class="photo-small-love one">
+            💗
+        </div>
+
+        <div class="photo-small-love two">
+            💖
+        </div>
+
+        <div class="photo-small-love three">
+            💞
+        </div>
+
+    </div>
+
+
+    <button onclick="showPage('message')">
+        TAP FOR SURPRISE ✨
+    </button>
+
+</section>
+
+
+
+<!-- =========================
+     HALAMAN PESAN
+========================= -->
+
+<section id="message" class="page message">
+
+    <div class="message-box">
+
+        <h2>
+            Untuk Yayaaa ❤️
+        </h2>
+
+
+        <p>
+            Halloo Sayanggg.
+            Terima kasih sudah menjadi bagian dari
+            hari-hari yang penuh cerita dan kenangan.
+        </p>
+
+
+        <br>
+
+
+        <p>
+            Semoga kita selalu bisa saling mendukung,
+            saling menghargai, dan terus membuat banyak
+            kenangan baik bersama.
+        </p>
+
+
+        <br>
+
+
+        <p>
+            Terima kasih untuk semua waktu,
+            perhatian, dan kebahagiaan yang sudah diberikan.
+        </p>
+
+
+        <br>
+
+
+        <p style="text-align:center">
+            ❤️ Thank you for everything ❤️
+        </p>
+
+    </div>
+
+
+    <div class="buttons">
+
+
+        <button
+            class="music-btn"
+            onclick="playMusic()"
+        >
+            🎵 Play / Pause Musik
+        </button>
+
+
+        <button onclick="showPage('gallery')">
+            📷 Yayaa Cantikkk ❤️
+        </button>
+
+
+        <button onclick="showPage('video')">
+            🎬 Lihat Video
+        </button>
+
+
+        <button onclick="showPage('surprise')">
+            BACK
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     YAYAAA CANTIKK
+     DESAIN SAMA PERSIS
+========================= -->
+
+<section id="gallery" class="page gallery">
+
+    <h2>
+        Yayaa Cantikkk ❤️
+    </h2>
+
+
+    <div class="date">
+        
+    </div>
+
+
+    <!-- KOLASE YAYAAA -->
+
+    <div class="photo-collage">
+
+
+        <!-- FOTO 1 -->
+
+        <div class="photo-card photo-a">
+
+            <img
+                src="images/yaya.jpg"
+                alt="Yayaa 1"
+            >
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div class="photo-card photo-b">
+
+            <img
+                src="images/yayaa.jpg"
+                alt="Yayaa 2"
+            >
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div class="photo-card photo-c">
+
+            <img
+                src="images/yayaaa.jpg"
+                alt="Yayaa 3"
+            >
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div class="photo-card photo-d">
+
+            <img
+                src="images/yayaaaa.jpg"
+                alt="Yayaa 4"
+            >
+
+        </div>
+
+
+        <!-- LOVE -->
+
+        <div class="photo-love big">
+            ❤️
+        </div>
+
+        <div class="photo-love medium">
+            💕
+        </div>
+
+        <div class="photo-love small">
+            💗
+        </div>
+
+
+        <!-- BUNGA -->
+
+        <div class="photo-flower one">
+            🌸
+        </div>
+
+        <div class="photo-flower two">
+            🌷
+        </div>
+
+        <div class="photo-flower three">
+            🌼
+        </div>
+
+        <div class="photo-flower four">
+            🌺
+        </div>
+
+
+        <!-- LOVE KECIL -->
+
+        <div class="photo-small-love one">
+            💗
+        </div>
+
+        <div class="photo-small-love two">
+            💖
+        </div>
+
+        <div class="photo-small-love three">
+            💞
+        </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button onclick="showPage('message')">
+            💌 BACK
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<section id="video" class="page video-page">
+
+    <h2>
+        Yayaa lucuu 🎬
+    </h2>
+
+
+    <video
+        controls
+        playsinline
+    >
+
+        <source
+            src="video/yayacantik.mp4"
+            type="video/mp4"
+        >
+
+        Browser tidak mendukung video.
+
+    </video>
+
+
+    <div class="buttons">
+
+        <button onclick="showPage('message')">
+            BACK
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MUSIK
+========================= -->
+
+<audio id="music" loop>
+
+    <source
+        src="music/you.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script>
+
+
+/* =========================
+   BUKA SURPRISE + MUSIK
+========================= */
+
+function openSurprise(){
+
+    showPage("surprise");
+
+
+    let music =
+        document.getElementById("music");
+
+
+    music.play().catch(function(){
+
+        console.log(
+            "Browser memblokir autoplay."
+        );
+
+    });
+
+
+    petals();
+
+}
+
+
+
+/* =========================
+   PINDAH HALAMAN
+========================= */
+
+function showPage(id){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+
+    petals();
+
+}
+
+
+
+/* =========================
+   PLAY / PAUSE MUSIK
+========================= */
+
+function playMusic(){
+
+    let music =
+        document.getElementById("music");
+
+
+    if(music.paused){
+
+        music.play();
+
+    }
+    else{
+
+        music.pause();
+
+    }
+
+}
+
+
+
+/* =========================
+   BUNGA JATUH
+========================= */
+
+function petals(){
+
+    for(let i = 0; i < 8; i++){
+
+        let p =
+            document.createElement("div");
+
+
+        p.className =
+            "petal";
+
+
+        p.textContent =
+            "🌹";
+
+
+        p.style.left =
+            Math.random() * 100 + "vw";
+
+
+        p.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+
+        document
+            .body
+            .appendChild(p);
+
+
+        setTimeout(function(){
+
+            p.remove();
+
+        },7000);
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
